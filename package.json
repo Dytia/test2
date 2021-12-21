@@ -1,7 +1,7 @@
 {
   "name": "tankbotv2",
   "version": "1.0.0",
-  "description": "",
+  "description": "2nd attempt.\r this should be fun",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,6 +11,14 @@
   "license": "ISC",
   "dependencies": {
     "async": "^3.2.0",
-    "discord.js": "^12.3.1"
-  }
+    "discord.js": "^12.5.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dytia/test2.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Dytia/test2/issues"
+  },
+  "homepage": "https://github.com/Dytia/test2#readme"
 }
