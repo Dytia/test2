@@ -7,15 +7,20 @@ const fs = require('fs');
 const prefix = "!-"
 client.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
+
+const { Permissions, MessageActionRow, MessageButton, MessageEmbed } = require('discord.js');
+
 for(const file of commandFiles){
     const command = require(`./commands/${file}`);
     client.commands.set(command.name, command);
 }
+
 client.login(token)
 client.once('ready', () => {
     console.log('Ready!');
-client.user.setActivity('in beta');
+    client.user.setActivity('Hi Cutie <3');
 });
+
 client.on('message', message => {
     if (!message.content.startsWith(prefix) || message.author.bot) return;
     const args = message.content.slice(prefix.length).trim().split(' ');
@@ -39,9 +44,30 @@ client.on('message', message => {
         client.commands.get('exponential').execute(message, args);
     }
     if (command === 'help'){
-        client.commands.get('help').execute(message, args);
+        if (member.Permission.has([Permissions.FLAGS.KICK_MEMBERS, Permissions.FLAGS.BAN_MEMBERS])) {
+            client.commands.get('helpA').execute(message, args);
+        }
+        else {
+            client.commands.get('help').execute(message, args);
+        }
     }
 });
 
-//const { Permissions } = require('discord.js');
+
+client.on('interactionCreate', async interaction => {
+	if (!interaction.isCommand()) return;
+
+	if (interaction.commandName === 'ping') {
+		const row = new MessageActionRow()
+			.addComponents(
+				new MessageButton()
+					.setCustomId('primary')
+					.setLabel('Primary')
+					.setStyle('PRIMARY'),
+			);
+
+		await interaction.reply({ content: 'Pong!', components: [row] });
+	}
+});
+
 //ADMINISTRATOR

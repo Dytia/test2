@@ -9,8 +9,6 @@ module.exports = {
         .addFields(
             { name: 'prefix is:!-', value: '\u200B'},
             { name: 'ping', value: '\u200B'},
-            { name: 'delete', value: 'Admins'},
-            { name: 'bulkdelete', value: 'Admins'},
             { name: 'exponential', value: 'For a graph'},
             { name: 'help', value: '\u200B'}
         )
