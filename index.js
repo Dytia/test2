@@ -12,26 +12,26 @@ const { Permissions, MessageActionRow, MessageButton, MessageEmbed } = require('
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
 
-/*
+
 for(const file of commandFiles){
     const command = require(`./commands/${file}`);
     client.commands.set(command.name, command);
 }
-*/
+
 
 client.login(token)
 client.once('ready', () => {
     console.log('Ready!');
     client.user.setActivity('Hi Cutie <3');
 });
-/*
+
 client.on('message', message => {
     if (!message.content.startsWith(prefix) || message.author.bot) return;
     const args = message.content.slice(prefix.length).trim().split(' ');
     const command = args.shift().toLowerCase();
-    //if (command === 'ping') {
-        //client.commands.get('ping').execute(message, args);
-    //}
+    if (command === 'ping') {
+        client.commands.get('ping').execute(message, args);
+    }
     if(command === 'Kitchen gun') {
         client.commands.get('Derek').execute(message, args);
     }
@@ -56,12 +56,13 @@ client.on('message', message => {
         }
     }
 });
-*/
 
-client.on('interactionCreate', async interaction => {
-	if (!interaction.isCommand()) return;
-
-	if (interaction.commandName === 'ping') {
+/*
+client.on('message', message => {
+    if (!message.content.startsWith(prefix) || message.author.bot) return;
+    const args = message.content.slice(prefix.length).trim().split(' ');
+    const command = args.shift().toLowerCase();
+	if (command === 'pong') {
 		const row = new MessageActionRow()
 			.addComponents(
 				new MessageButton()
@@ -70,6 +71,7 @@ client.on('interactionCreate', async interaction => {
 					.setStyle('PRIMARY'),
 			);
 
-		await interaction.reply({ content: 'Pong!x', components: [row] });
+		message.reply({ content: 'Pong!x', components: [row] });
 	}
 });
+*/
