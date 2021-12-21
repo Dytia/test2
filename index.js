@@ -9,37 +9,41 @@ client.commands = new Discord.Collection();
 const commandFiles = fs.readdirSync('./commands/').filter(file => file.endsWith('.js'));
 
 const { Permissions, MessageActionRow, MessageButton, MessageEmbed } = require('discord.js');
+const { REST } = require('@discordjs/rest');
+const { Routes } = require('discord-api-types/v9');
 
+/*
 for(const file of commandFiles){
     const command = require(`./commands/${file}`);
     client.commands.set(command.name, command);
 }
+*/
 
 client.login(token)
 client.once('ready', () => {
     console.log('Ready!');
     client.user.setActivity('Hi Cutie <3');
 });
-
+/*
 client.on('message', message => {
     if (!message.content.startsWith(prefix) || message.author.bot) return;
     const args = message.content.slice(prefix.length).trim().split(' ');
     const command = args.shift().toLowerCase();
-    if (command === 'ping') {
-        client.commands.get('ping').execute(message, args);
-    }
+    //if (command === 'ping') {
+        //client.commands.get('ping').execute(message, args);
+    //}
     if(command === 'Kitchen gun') {
         client.commands.get('Derek').execute(message, args);
     }
     if(command === 'delete') {
         client.commands.get('delete').execute(message, args);
     }
-    /*if (command === 'clear') {
+    if (command === 'clear') {
         client.commands.get('clear').execute(message, args);
     }
     if (command === 'fill') {
         client.commands.get('fill').execute(message, args);
-    }*/
+    }
     if (command === 'exponential'){
         client.commands.get('exponential').execute(message, args);
     }
@@ -52,7 +56,7 @@ client.on('message', message => {
         }
     }
 });
-
+*/
 
 client.on('interactionCreate', async interaction => {
 	if (!interaction.isCommand()) return;
@@ -66,8 +70,6 @@ client.on('interactionCreate', async interaction => {
 					.setStyle('PRIMARY'),
 			);
 
-		await interaction.reply({ content: 'Pong!', components: [row] });
+		await interaction.reply({ content: 'Pong!x', components: [row] });
 	}
 });
-
-//ADMINISTRATOR
