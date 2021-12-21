@@ -1,7 +1,7 @@
 //bootup
 const Discord = require('discord.js');
 const async = require('async');
-const token = process.env['token']
+const { token } = require('./config.json');
 const client = new Discord.Client();
 const fs = require('fs');
 const prefix = "!-"
