@@ -55,6 +55,15 @@ client.on('message', message => {
             client.commands.get('help').execute(message, args);
         }
     }
+    if (command === 'boop'){
+        client.commands.get('boop').execute(message, args);
+    }
+    if (command === 'hug'){
+        client.commands.get('hug').execute(message, args);
+    }
+    if (command === 'monikopter'){
+        client.commands.get('monikopter').execute(message, args);
+    }
 });
 
 /*
